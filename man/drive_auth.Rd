@@ -115,6 +115,6 @@ drive_auth(path = "foofy-83ee9e7c9c48.json")
 }
 \seealso{
 Other auth functions: \code{\link{drive_auth_configure}},
-  \code{\link{drive_deauth}}
+  \code{\link{drive_deauth}}, \code{\link{drive_set_token}}
 }
 \concept{auth functions}

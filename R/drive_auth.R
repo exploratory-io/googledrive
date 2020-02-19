@@ -8,7 +8,7 @@
 
 #' API to set OAuth token for googledrive
 #' This API does not refresh the provided token and use it as is.
-#'
+#' @param token - OAuth token for the googledrive
 #' @family auth functions
 #' @export
 drive_set_token <- function(token){
