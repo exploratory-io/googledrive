@@ -6,6 +6,13 @@
   auth_active = TRUE
 )
 
+drive_set_token <- function(token){
+  .auth$set_cred(token)
+  .auth$set_auth_active(TRUE)
+
+  invisible()
+}
+
 ## The roxygen comments for these functions are mostly generated from data
 ## in this list and template text maintained in gargle.
 gargle_lookup_table <- list(
