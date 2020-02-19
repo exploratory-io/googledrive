@@ -6,6 +6,11 @@
   auth_active = TRUE
 )
 
+#' API to set OAuth token for googledrive
+#' This API does not refresh the provided token and use it as is.
+#'
+#' @family auth functions
+#' @export
 drive_set_token <- function(token){
   .auth$set_cred(token)
   .auth$set_auth_active(TRUE)
