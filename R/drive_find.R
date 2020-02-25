@@ -161,17 +161,27 @@ drive_find <- function(pattern = NULL,
   params <- append(params, handle_team_drives(team_drive, corpus))
 
   request <- request_generate(endpoint = "drive.files.list", params = params)
+  if(!is.null(params$fields)) {
+    request$query$fields <- params$fields
+  }
   proc_res_list <- do_paginated_request(
     request,
     n_max = n_max,
     n = function(x) length(x$files),
     verbose = verbose
   )
-
-  res_tbl <- proc_res_list %>%
-    purrr::map("files") %>%
-    purrr::flatten() %>%
-    as_dribble()
+  # if fiedls parameter was empty, it falls back with *
+  if(params[["fields"]] == "*") {
+    res_tbl <- proc_res_list %>%
+      purrr::map("files") %>%
+      purrr::flatten() %>%
+      as_dribble()
+  } else { #for custom field parameter case
+    res_tbl <- proc_res_list %>%
+      purrr::map("files") %>%
+      purrr::flatten() %>%
+      dplyr::bind_rows() # to avoide column name error, just bind rows.
+  }
 
   if (!is.null(pattern)) {
     res_tbl <- res_tbl[grep(pattern, res_tbl$name), ]
