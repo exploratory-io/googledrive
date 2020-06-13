@@ -128,6 +128,22 @@ drive_token <- function() {
   httr::config(token = .auth$cred)
 }
 
+#' Set bring your own OAuth token
+#'
+#'
+#' @family low-level API functions
+#' @export
+#' @examples
+#' drive_set_token(
+#'   token
+#' )
+drive_set_token <- function(token){
+  .auth$set_cred(token)
+  .auth$set_auth_active(TRUE)
+
+  invisible()
+}
+
 #' Is there a token on hand?
 #'
 #' @eval gargle:::PREFIX_has_token_description(gargle_lookup_table)
