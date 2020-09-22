@@ -1,13 +1,13 @@
 pandoc: 2.7.3
 pkgdown: 1.6.1.9000
-pkgdown_sha: cc9c7b1be8573f8af3453f6e5d0422d86c916701
+pkgdown_sha: e1e46f2e13c7efdb17bc4eae40bc3779c2b0b517
 articles:
   articles/bring-your-own-app: bring-your-own-app.html
   articles/file-identification: file-identification.html
   articles/multiple-files: multiple-files.html
   articles/permissions: permissions.html
   googledrive: googledrive.html
-last_built: 2020-09-21T12:40Z
+last_built: 2020-09-22T12:42Z
 urls:
   reference: https://googledrive.tidyverse.org/reference
   article: https://googledrive.tidyverse.org/articles
