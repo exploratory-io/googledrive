@@ -126,7 +126,8 @@ drive_upload <- function(media,
 
   meta_file <- tempfile()
   on.exit(unlink(meta_file))
-  writeLines(jsonlite::toJSON(params), meta_file)
+  ## useBytes is set to avoid unnecessary encoding translation on Windows.
+  writeLines(jsonlite::toJSON(params), meta_file, useBytes = TRUE)
   ## media uploads have unique body situations, so customizing here.
   request$body <- list(
     metadata = httr::upload_file(
